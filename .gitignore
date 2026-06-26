@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.pytest_cache/
+build/
+dist/
+.venv/
+venv/
+
+# The video explainer + its pipeline are not part of the AP example
+# (the pipeline needs a private GPU AMI with F5-TTS; see the project notes).
+video/
+
+# Generated demo artifacts (regenerate with deploy/demo.py capture)
+deploy/web/demo.html
+*.mp4
+*.wav
+
+# Generated rendered page images (regenerate from the committed PDFs)
+data/pages/
+
+# OS / editors / scratch
+.DS_Store
+.vscode/
+.idea/
+.inv.txt

@@ -1,0 +1,24 @@
+[project]
+name = "ap-autopilot"
+version = "0.1.0"
+description = "AP Autopilot — agentic invoice-to-pay (intelligent document processing) on Amazon Bedrock AgentCore"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+# Generating the sample documents and rendering pages for vision.
+docs = ["reportlab>=4.0", "pymupdf>=1.24"]
+# Live AWS path: Bedrock vision + AgentCore (Runtime, Gateway, Memory, Code Interpreter).
+aws = ["boto3>=1.40", "bedrock-agentcore", "bedrock-agentcore-starter-toolkit", "strands-agents"]
+dev = ["pytest>=7.0"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

@@ -1,0 +1,888 @@
+{
+  "purchase_orders": {
+    "PO-4500": {
+      "po_number": "PO-4500",
+      "vendor_id": "V-1001",
+      "vendor_name": "Northwind Office Supply",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "OFF-TONER-58X",
+          "description": "HP 58X toner cartridge",
+          "quantity_ordered": "3.000",
+          "unit_price": "118.00"
+        },
+        {
+          "sku": "OFF-NOTE-YEL",
+          "description": "Sticky notes, 3x3, 12-pack",
+          "quantity_ordered": "10.000",
+          "unit_price": "14.20"
+        },
+        {
+          "sku": "OFF-PAPER-A4",
+          "description": "Premium A4 paper, 5-ream case",
+          "quantity_ordered": "3.000",
+          "unit_price": "42.50"
+        }
+      ]
+    },
+    "PO-4501": {
+      "po_number": "PO-4501",
+      "vendor_id": "V-1002",
+      "vendor_name": "Cascade IT Hardware",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "IT-SSD-1TB",
+          "description": "1TB NVMe SSD",
+          "quantity_ordered": "2.000",
+          "unit_price": "94.00"
+        },
+        {
+          "sku": "IT-CBL-HDMI",
+          "description": "HDMI 2.1 cable, 2m",
+          "quantity_ordered": "3.000",
+          "unit_price": "12.50"
+        },
+        {
+          "sku": "IT-MON-27",
+          "description": "27in 1440p monitor",
+          "quantity_ordered": "8.000",
+          "unit_price": "228.00"
+        }
+      ]
+    },
+    "PO-4502": {
+      "po_number": "PO-4502",
+      "vendor_id": "V-1003",
+      "vendor_name": "Brightline Facilities",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "FAC-NITRILE",
+          "description": "Nitrile gloves, case of 1000",
+          "quantity_ordered": "10.000",
+          "unit_price": "78.00"
+        },
+        {
+          "sku": "FAC-TOWEL-BR",
+          "description": "Brown roll towels, 12-pack",
+          "quantity_ordered": "8.000",
+          "unit_price": "31.40"
+        },
+        {
+          "sku": "FAC-CLEAN-5G",
+          "description": "Industrial cleaner, 5 gal",
+          "quantity_ordered": "2.000",
+          "unit_price": "54.00"
+        }
+      ]
+    },
+    "PO-4503": {
+      "po_number": "PO-4503",
+      "vendor_id": "V-1004",
+      "vendor_name": "Meridian Packaging Co.",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "PKG-BOX-M",
+          "description": "Corrugated box, medium, bundle/25",
+          "quantity_ordered": "11.000",
+          "unit_price": "27.00"
+        },
+        {
+          "sku": "PKG-TAPE-CL",
+          "description": "Packing tape, clear, 6-pack",
+          "quantity_ordered": "11.000",
+          "unit_price": "16.80"
+        }
+      ]
+    },
+    "PO-4504": {
+      "po_number": "PO-4504",
+      "vendor_id": "V-1001",
+      "vendor_name": "Northwind Office Supply",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "OFF-PAPER-A4",
+          "description": "Premium A4 paper, 5-ream case",
+          "quantity_ordered": "10.000",
+          "unit_price": "42.50"
+        },
+        {
+          "sku": "OFF-NOTE-YEL",
+          "description": "Sticky notes, 3x3, 12-pack",
+          "quantity_ordered": "4.000",
+          "unit_price": "14.20"
+        },
+        {
+          "sku": "OFF-PEN-BLK",
+          "description": "Gel pens, black, box of 12",
+          "quantity_ordered": "6.000",
+          "unit_price": "9.75"
+        }
+      ]
+    },
+    "PO-4505": {
+      "po_number": "PO-4505",
+      "vendor_id": "V-1002",
+      "vendor_name": "Cascade IT Hardware",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "IT-DOCK-USB4",
+          "description": "USB4 docking station",
+          "quantity_ordered": "11.000",
+          "unit_price": "189.00"
+        },
+        {
+          "sku": "IT-CBL-HDMI",
+          "description": "HDMI 2.1 cable, 2m",
+          "quantity_ordered": "6.000",
+          "unit_price": "12.50"
+        },
+        {
+          "sku": "IT-SSD-1TB",
+          "description": "1TB NVMe SSD",
+          "quantity_ordered": "10.000",
+          "unit_price": "94.00"
+        }
+      ]
+    },
+    "PO-4506": {
+      "po_number": "PO-4506",
+      "vendor_id": "V-1003",
+      "vendor_name": "Brightline Facilities",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "FAC-NITRILE",
+          "description": "Nitrile gloves, case of 1000",
+          "quantity_ordered": "7.000",
+          "unit_price": "78.00"
+        },
+        {
+          "sku": "FAC-TOWEL-BR",
+          "description": "Brown roll towels, 12-pack",
+          "quantity_ordered": "3.000",
+          "unit_price": "31.40"
+        }
+      ]
+    },
+    "PO-4507": {
+      "po_number": "PO-4507",
+      "vendor_id": "V-1004",
+      "vendor_name": "Meridian Packaging Co.",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "PKG-TAPE-CL",
+          "description": "Packing tape, clear, 6-pack",
+          "quantity_ordered": "11.000",
+          "unit_price": "16.80"
+        },
+        {
+          "sku": "PKG-BOX-M",
+          "description": "Corrugated box, medium, bundle/25",
+          "quantity_ordered": "5.000",
+          "unit_price": "27.00"
+        }
+      ]
+    },
+    "PO-4508": {
+      "po_number": "PO-4508",
+      "vendor_id": "V-1001",
+      "vendor_name": "Northwind Office Supply",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "OFF-NOTE-YEL",
+          "description": "Sticky notes, 3x3, 12-pack",
+          "quantity_ordered": "11.000",
+          "unit_price": "14.20"
+        },
+        {
+          "sku": "OFF-TONER-58X",
+          "description": "HP 58X toner cartridge",
+          "quantity_ordered": "9.000",
+          "unit_price": "118.00"
+        },
+        {
+          "sku": "OFF-PEN-BLK",
+          "description": "Gel pens, black, box of 12",
+          "quantity_ordered": "7.000",
+          "unit_price": "9.75"
+        }
+      ]
+    },
+    "PO-4509": {
+      "po_number": "PO-4509",
+      "vendor_id": "V-1002",
+      "vendor_name": "Cascade IT Hardware",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "IT-DOCK-USB4",
+          "description": "USB4 docking station",
+          "quantity_ordered": "3.000",
+          "unit_price": "189.00"
+        },
+        {
+          "sku": "IT-SSD-1TB",
+          "description": "1TB NVMe SSD",
+          "quantity_ordered": "11.000",
+          "unit_price": "94.00"
+        },
+        {
+          "sku": "IT-CBL-HDMI",
+          "description": "HDMI 2.1 cable, 2m",
+          "quantity_ordered": "6.000",
+          "unit_price": "12.50"
+        }
+      ]
+    },
+    "PO-4510": {
+      "po_number": "PO-4510",
+      "vendor_id": "V-1003",
+      "vendor_name": "Brightline Facilities",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "FAC-CLEAN-5G",
+          "description": "Industrial cleaner, 5 gal",
+          "quantity_ordered": "11.000",
+          "unit_price": "54.00"
+        },
+        {
+          "sku": "FAC-TOWEL-BR",
+          "description": "Brown roll towels, 12-pack",
+          "quantity_ordered": "3.000",
+          "unit_price": "31.40"
+        },
+        {
+          "sku": "FAC-NITRILE",
+          "description": "Nitrile gloves, case of 1000",
+          "quantity_ordered": "3.000",
+          "unit_price": "78.00"
+        }
+      ]
+    },
+    "PO-4511": {
+      "po_number": "PO-4511",
+      "vendor_id": "V-1004",
+      "vendor_name": "Meridian Packaging Co.",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "PKG-BOX-M",
+          "description": "Corrugated box, medium, bundle/25",
+          "quantity_ordered": "9.000",
+          "unit_price": "27.00"
+        },
+        {
+          "sku": "PKG-WRAP-18",
+          "description": "Stretch wrap, 18in roll",
+          "quantity_ordered": "8.000",
+          "unit_price": "22.50"
+        },
+        {
+          "sku": "PKG-TAPE-CL",
+          "description": "Packing tape, clear, 6-pack",
+          "quantity_ordered": "2.000",
+          "unit_price": "16.80"
+        }
+      ]
+    },
+    "PO-4512": {
+      "po_number": "PO-4512",
+      "vendor_id": "V-1001",
+      "vendor_name": "Northwind Office Supply",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "OFF-PAPER-A4",
+          "description": "Premium A4 paper, 5-ream case",
+          "quantity_ordered": "7.000",
+          "unit_price": "42.50"
+        },
+        {
+          "sku": "OFF-PEN-BLK",
+          "description": "Gel pens, black, box of 12",
+          "quantity_ordered": "11.000",
+          "unit_price": "9.75"
+        },
+        {
+          "sku": "OFF-TONER-58X",
+          "description": "HP 58X toner cartridge",
+          "quantity_ordered": "9.000",
+          "unit_price": "118.00"
+        },
+        {
+          "sku": "OFF-NOTE-YEL",
+          "description": "Sticky notes, 3x3, 12-pack",
+          "quantity_ordered": "11.000",
+          "unit_price": "14.20"
+        }
+      ]
+    },
+    "PO-4513": {
+      "po_number": "PO-4513",
+      "vendor_id": "V-1002",
+      "vendor_name": "Cascade IT Hardware",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "IT-SSD-1TB",
+          "description": "1TB NVMe SSD",
+          "quantity_ordered": "9.000",
+          "unit_price": "94.00"
+        },
+        {
+          "sku": "IT-MON-27",
+          "description": "27in 1440p monitor",
+          "quantity_ordered": "12.000",
+          "unit_price": "228.00"
+        },
+        {
+          "sku": "IT-DOCK-USB4",
+          "description": "USB4 docking station",
+          "quantity_ordered": "3.000",
+          "unit_price": "189.00"
+        }
+      ]
+    },
+    "PO-4514": {
+      "po_number": "PO-4514",
+      "vendor_id": "V-1003",
+      "vendor_name": "Brightline Facilities",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "FAC-TOWEL-BR",
+          "description": "Brown roll towels, 12-pack",
+          "quantity_ordered": "12.000",
+          "unit_price": "31.40"
+        },
+        {
+          "sku": "FAC-CLEAN-5G",
+          "description": "Industrial cleaner, 5 gal",
+          "quantity_ordered": "11.000",
+          "unit_price": "54.00"
+        }
+      ]
+    },
+    "PO-4515": {
+      "po_number": "PO-4515",
+      "vendor_id": "V-1004",
+      "vendor_name": "Meridian Packaging Co.",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "PKG-WRAP-18",
+          "description": "Stretch wrap, 18in roll",
+          "quantity_ordered": "2.000",
+          "unit_price": "22.50"
+        },
+        {
+          "sku": "PKG-TAPE-CL",
+          "description": "Packing tape, clear, 6-pack",
+          "quantity_ordered": "9.000",
+          "unit_price": "16.80"
+        },
+        {
+          "sku": "PKG-BOX-M",
+          "description": "Corrugated box, medium, bundle/25",
+          "quantity_ordered": "7.000",
+          "unit_price": "27.00"
+        }
+      ]
+    },
+    "PO-4517": {
+      "po_number": "PO-4517",
+      "vendor_id": "V-1002",
+      "vendor_name": "Cascade IT Hardware",
+      "currency": "USD",
+      "lines": [
+        {
+          "sku": "IT-DOCK-USB4",
+          "description": "USB4 docking station",
+          "quantity_ordered": "8.000",
+          "unit_price": "189.00"
+        },
+        {
+          "sku": "IT-CBL-HDMI",
+          "description": "HDMI 2.1 cable, 2m",
+          "quantity_ordered": "8.000",
+          "unit_price": "12.50"
+        },
+        {
+          "sku": "IT-SSD-1TB",
+          "description": "1TB NVMe SSD",
+          "quantity_ordered": "9.000",
+          "unit_price": "94.00"
+        }
+      ]
+    }
+  },
+  "goods_receipts": {
+    "PO-4500": {
+      "receipt_id": "GR-7800",
+      "po_number": "PO-4500",
+      "received_date": "2026-06-01",
+      "lines": [
+        {
+          "sku": "OFF-TONER-58X",
+          "quantity_received": "3.000"
+        },
+        {
+          "sku": "OFF-NOTE-YEL",
+          "quantity_received": "10.000"
+        },
+        {
+          "sku": "OFF-PAPER-A4",
+          "quantity_received": "3.000"
+        }
+      ]
+    },
+    "PO-4501": {
+      "receipt_id": "GR-7801",
+      "po_number": "PO-4501",
+      "received_date": "2026-06-02",
+      "lines": [
+        {
+          "sku": "IT-SSD-1TB",
+          "quantity_received": "2.000"
+        },
+        {
+          "sku": "IT-CBL-HDMI",
+          "quantity_received": "3.000"
+        },
+        {
+          "sku": "IT-MON-27",
+          "quantity_received": "8.000"
+        }
+      ]
+    },
+    "PO-4502": {
+      "receipt_id": "GR-7802",
+      "po_number": "PO-4502",
+      "received_date": "2026-06-03",
+      "lines": [
+        {
+          "sku": "FAC-NITRILE",
+          "quantity_received": "10.000"
+        },
+        {
+          "sku": "FAC-TOWEL-BR",
+          "quantity_received": "8.000"
+        },
+        {
+          "sku": "FAC-CLEAN-5G",
+          "quantity_received": "2.000"
+        }
+      ]
+    },
+    "PO-4503": {
+      "receipt_id": "GR-7803",
+      "po_number": "PO-4503",
+      "received_date": "2026-06-04",
+      "lines": [
+        {
+          "sku": "PKG-BOX-M",
+          "quantity_received": "11.000"
+        },
+        {
+          "sku": "PKG-TAPE-CL",
+          "quantity_received": "11.000"
+        }
+      ]
+    },
+    "PO-4504": {
+      "receipt_id": "GR-7804",
+      "po_number": "PO-4504",
+      "received_date": "2026-06-05",
+      "lines": [
+        {
+          "sku": "OFF-PAPER-A4",
+          "quantity_received": "10.000"
+        },
+        {
+          "sku": "OFF-NOTE-YEL",
+          "quantity_received": "4.000"
+        },
+        {
+          "sku": "OFF-PEN-BLK",
+          "quantity_received": "6.000"
+        }
+      ]
+    },
+    "PO-4505": {
+      "receipt_id": "GR-7805",
+      "po_number": "PO-4505",
+      "received_date": "2026-06-06",
+      "lines": [
+        {
+          "sku": "IT-DOCK-USB4",
+          "quantity_received": "11.000"
+        },
+        {
+          "sku": "IT-CBL-HDMI",
+          "quantity_received": "6.000"
+        },
+        {
+          "sku": "IT-SSD-1TB",
+          "quantity_received": "10.000"
+        }
+      ]
+    },
+    "PO-4506": {
+      "receipt_id": "GR-7806",
+      "po_number": "PO-4506",
+      "received_date": "2026-06-07",
+      "lines": [
+        {
+          "sku": "FAC-NITRILE",
+          "quantity_received": "7.000"
+        },
+        {
+          "sku": "FAC-TOWEL-BR",
+          "quantity_received": "3.000"
+        }
+      ]
+    },
+    "PO-4507": {
+      "receipt_id": "GR-7807",
+      "po_number": "PO-4507",
+      "received_date": "2026-06-08",
+      "lines": [
+        {
+          "sku": "PKG-TAPE-CL",
+          "quantity_received": "11.000"
+        },
+        {
+          "sku": "PKG-BOX-M",
+          "quantity_received": "5.000"
+        }
+      ]
+    },
+    "PO-4508": {
+      "receipt_id": "GR-7808",
+      "po_number": "PO-4508",
+      "received_date": "2026-06-09",
+      "lines": [
+        {
+          "sku": "OFF-NOTE-YEL",
+          "quantity_received": "11.000"
+        },
+        {
+          "sku": "OFF-TONER-58X",
+          "quantity_received": "9.000"
+        },
+        {
+          "sku": "OFF-PEN-BLK",
+          "quantity_received": "7.000"
+        }
+      ]
+    },
+    "PO-4509": {
+      "receipt_id": "GR-7809",
+      "po_number": "PO-4509",
+      "received_date": "2026-06-10",
+      "lines": [
+        {
+          "sku": "IT-DOCK-USB4",
+          "quantity_received": "3.000"
+        },
+        {
+          "sku": "IT-SSD-1TB",
+          "quantity_received": "11.000"
+        },
+        {
+          "sku": "IT-CBL-HDMI",
+          "quantity_received": "6.000"
+        }
+      ]
+    },
+    "PO-4510": {
+      "receipt_id": "GR-7810",
+      "po_number": "PO-4510",
+      "received_date": "2026-06-11",
+      "lines": [
+        {
+          "sku": "FAC-CLEAN-5G",
+          "quantity_received": "11.000"
+        },
+        {
+          "sku": "FAC-TOWEL-BR",
+          "quantity_received": "3.000"
+        },
+        {
+          "sku": "FAC-NITRILE",
+          "quantity_received": "3.000"
+        }
+      ]
+    },
+    "PO-4511": {
+      "receipt_id": "GR-7811",
+      "po_number": "PO-4511",
+      "received_date": "2026-06-12",
+      "lines": [
+        {
+          "sku": "PKG-BOX-M",
+          "quantity_received": "9.000"
+        },
+        {
+          "sku": "PKG-WRAP-18",
+          "quantity_received": "8.000"
+        },
+        {
+          "sku": "PKG-TAPE-CL",
+          "quantity_received": "2.000"
+        }
+      ]
+    },
+    "PO-4512": {
+      "receipt_id": "GR-7812",
+      "po_number": "PO-4512",
+      "received_date": "2026-06-13",
+      "lines": [
+        {
+          "sku": "OFF-PAPER-A4",
+          "quantity_received": "7.000"
+        },
+        {
+          "sku": "OFF-PEN-BLK",
+          "quantity_received": "11.000"
+        },
+        {
+          "sku": "OFF-TONER-58X",
+          "quantity_received": "9.000"
+        },
+        {
+          "sku": "OFF-NOTE-YEL",
+          "quantity_received": "11.000"
+        }
+      ]
+    },
+    "PO-4513": {
+      "receipt_id": "GR-7813",
+      "po_number": "PO-4513",
+      "received_date": "2026-06-14",
+      "lines": [
+        {
+          "sku": "IT-SSD-1TB",
+          "quantity_received": "9.000"
+        },
+        {
+          "sku": "IT-MON-27",
+          "quantity_received": "12.000"
+        },
+        {
+          "sku": "IT-DOCK-USB4",
+          "quantity_received": "3.000"
+        }
+      ]
+    },
+    "PO-4514": {
+      "receipt_id": "GR-7814",
+      "po_number": "PO-4514",
+      "received_date": "2026-06-15",
+      "lines": [
+        {
+          "sku": "FAC-TOWEL-BR",
+          "quantity_received": "12.000"
+        },
+        {
+          "sku": "FAC-CLEAN-5G",
+          "quantity_received": "11.000"
+        }
+      ]
+    },
+    "PO-4515": {
+      "receipt_id": "GR-7815",
+      "po_number": "PO-4515",
+      "received_date": "2026-06-16",
+      "lines": [
+        {
+          "sku": "PKG-WRAP-18",
+          "quantity_received": "1.000"
+        },
+        {
+          "sku": "PKG-TAPE-CL",
+          "quantity_received": "9.000"
+        },
+        {
+          "sku": "PKG-BOX-M",
+          "quantity_received": "7.000"
+        }
+      ]
+    },
+    "PO-4517": {
+      "receipt_id": "GR-7817",
+      "po_number": "PO-4517",
+      "received_date": "2026-06-18",
+      "lines": [
+        {
+          "sku": "IT-DOCK-USB4",
+          "quantity_received": "8.000"
+        },
+        {
+          "sku": "IT-CBL-HDMI",
+          "quantity_received": "8.000"
+        },
+        {
+          "sku": "IT-SSD-1TB",
+          "quantity_received": "9.000"
+        }
+      ]
+    }
+  },
+  "expected": [
+    {
+      "invoice_id": "INV-20260",
+      "label": "clean",
+      "pdf": "INV-20260_clean.pdf",
+      "status": "auto_approved",
+      "codes": []
+    },
+    {
+      "invoice_id": "INV-20261",
+      "label": "clean",
+      "pdf": "INV-20261_clean.pdf",
+      "status": "auto_approved",
+      "codes": []
+    },
+    {
+      "invoice_id": "INV-20262",
+      "label": "clean",
+      "pdf": "INV-20262_clean.pdf",
+      "status": "auto_approved",
+      "codes": []
+    },
+    {
+      "invoice_id": "INV-20263",
+      "label": "clean",
+      "pdf": "INV-20263_clean.pdf",
+      "status": "auto_approved",
+      "codes": []
+    },
+    {
+      "invoice_id": "INV-20264",
+      "label": "clean",
+      "pdf": "INV-20264_clean.pdf",
+      "status": "auto_approved",
+      "codes": []
+    },
+    {
+      "invoice_id": "INV-20265",
+      "label": "clean",
+      "pdf": "INV-20265_clean.pdf",
+      "status": "auto_approved",
+      "codes": []
+    },
+    {
+      "invoice_id": "INV-20266",
+      "label": "clean",
+      "pdf": "INV-20266_clean.pdf",
+      "status": "auto_approved",
+      "codes": []
+    },
+    {
+      "invoice_id": "INV-20267",
+      "label": "clean",
+      "pdf": "INV-20267_clean.pdf",
+      "status": "auto_approved",
+      "codes": []
+    },
+    {
+      "invoice_id": "INV-20268",
+      "label": "clean",
+      "pdf": "INV-20268_clean.pdf",
+      "status": "auto_approved",
+      "codes": []
+    },
+    {
+      "invoice_id": "INV-20269",
+      "label": "clean",
+      "pdf": "INV-20269_clean.pdf",
+      "status": "auto_approved",
+      "codes": []
+    },
+    {
+      "invoice_id": "INV-20270",
+      "label": "clean",
+      "pdf": "INV-20270_clean.pdf",
+      "status": "auto_approved",
+      "codes": []
+    },
+    {
+      "invoice_id": "INV-20271",
+      "label": "clean",
+      "pdf": "INV-20271_clean.pdf",
+      "status": "auto_approved",
+      "codes": []
+    },
+    {
+      "invoice_id": "INV-20272",
+      "label": "clean",
+      "pdf": "INV-20272_clean.pdf",
+      "status": "auto_approved",
+      "codes": []
+    },
+    {
+      "invoice_id": "INV-20273",
+      "label": "math_error",
+      "pdf": "INV-20273_math_error.pdf",
+      "status": "routed_for_approval",
+      "codes": [
+        "TOTAL_ERROR"
+      ]
+    },
+    {
+      "invoice_id": "INV-20274",
+      "label": "price_variance",
+      "pdf": "INV-20274_price_variance.pdf",
+      "status": "routed_for_approval",
+      "codes": [
+        "PRICE_VARIANCE"
+      ]
+    },
+    {
+      "invoice_id": "INV-20275",
+      "label": "short_receipt",
+      "pdf": "INV-20275_short_receipt.pdf",
+      "status": "routed_for_approval",
+      "codes": [
+        "QUANTITY_NOT_RECEIVED"
+      ]
+    },
+    {
+      "invoice_id": "INV-20276",
+      "label": "missing_po",
+      "pdf": "INV-20276_missing_po.pdf",
+      "status": "rejected",
+      "codes": [
+        "PO_NOT_FOUND"
+      ]
+    },
+    {
+      "invoice_id": "INV-20277",
+      "label": "unordered_item",
+      "pdf": "INV-20277_unordered_item.pdf",
+      "status": "routed_for_approval",
+      "codes": [
+        "UNORDERED_ITEM"
+      ]
+    },
+    {
+      "invoice_id": "INV-20260",
+      "label": "duplicate",
+      "pdf": "INV-20260_clean.pdf",
+      "status": "rejected",
+      "codes": [
+        "DUPLICATE_INVOICE"
+      ]
+    }
+  ]
+}
