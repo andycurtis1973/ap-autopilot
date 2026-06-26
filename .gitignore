@@ -21,6 +21,10 @@ deploy/web/demo.html
 # Generated rendered page images (regenerate from the committed PDFs)
 data/pages/
 
+# Live-deploy state (contains ARNs + Cognito client secrets) — never commit
+deploy/.demo_state.json
+deploy/.gateway_state.json
+
 # OS / editors / scratch
 .DS_Store
 .vscode/
