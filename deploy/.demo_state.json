@@ -1,0 +1,5 @@
+{
+  "memory_id": "ap_autopilot_vendor_history-KuwvgzChbQ",
+  "agent_arn": "arn:aws:bedrock-agentcore:us-east-1:641315376775:runtime/ap_autopilot-lYWJ6iDFcY",
+  "ecr_uri": "641315376775.dkr.ecr.us-east-1.amazonaws.com/bedrock-agentcore-ap_autopilot:20260626-170409-204"
+}

@@ -1,0 +1,6 @@
+# Staged at deploy time
+ap_autopilot/
+records.json
+Dockerfile
+.dockerignore
+.bedrock_agentcore.yaml

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AP Autopilot — Intelligent Document Processing on Amazon Bedrock AgentCore</title>
+<style>
+  :root{
+    --bg:#0d1117; --panel:#161b22; --bd:#283041; --tx:#e6edf3; --mut:#8b949e;
+    --teal:#2dd4bf; --hit:#3fb950; --miss:#e3a008; --rej:#f85149; --blue:#58a6ff;
+  }
+  *{box-sizing:border-box} html,body{margin:0;height:100%}
+  body{background:var(--bg);color:var(--tx);font:15px/1.5 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+  .top{height:6px;background:var(--teal)}
+  .wrap{max-width:1180px;margin:0 auto;padding:26px 24px 40px}
+  h1{font-size:26px;margin:6px 0 2px} .sub{color:var(--teal);font-weight:600}
+  .kick{color:var(--mut);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+  /* AgentCore component strip */
+  .strip{display:flex;gap:10px;margin:18px 0 8px;flex-wrap:wrap}
+  .chip{flex:1;min-width:150px;background:var(--panel);border:1px solid var(--bd);border-radius:12px;padding:10px 12px;transition:.25s}
+  .chip .n{font-weight:700;font-size:14px} .chip .d{color:var(--mut);font-size:12px}
+  .chip.on{border-color:var(--teal);box-shadow:0 0 0 1px var(--teal),0 0 22px -6px var(--teal)}
+  .chip.on .n{color:var(--teal)}
+  /* main */
+  .main{display:grid;grid-template-columns:340px 1fr;gap:18px;margin-top:14px}
+  .card{background:var(--panel);border:1px solid var(--bd);border-radius:14px;padding:16px}
+  .doc{position:relative;overflow:hidden}
+  .doc img{width:100%;border-radius:8px;display:block;background:#fff;min-height:360px}
+  .scan{position:absolute;left:16px;right:16px;height:38px;border-radius:6px;
+    background:linear-gradient(180deg,transparent,rgba(45,212,191,.28),transparent);
+    box-shadow:0 0 16px 2px rgba(45,212,191,.5);top:16px;opacity:0;pointer-events:none}
+  .doc.scanning .scan{animation:scan 1.1s ease-in-out 2;opacity:1}
+  @keyframes scan{0%{top:16px}100%{top:330px}}
+  .meta{display:flex;justify-content:space-between;margin-bottom:10px}
+  .meta .id{font-weight:700;font-size:18px} .meta .ven{color:var(--mut);font-size:13px}
+  .fields{display:grid;grid-template-columns:1fr 1fr;gap:6px 18px;margin:6px 0 12px}
+  .f{display:flex;justify-content:space-between;border-bottom:1px dashed var(--bd);padding:3px 0;font-size:13px}
+  .f .k{color:var(--mut)} .f .v{font-variant-numeric:tabular-nums}
+  .stages{display:flex;gap:8px;margin:10px 0}
+  .st{flex:1;text-align:center;font-size:11px;color:var(--mut);border:1px solid var(--bd);border-radius:8px;padding:7px 4px;transition:.2s}
+  .st.on{color:var(--tx);border-color:var(--teal);background:rgba(45,212,191,.08)}
+  .st.done{color:var(--hit);border-color:var(--hit)}
+  .trace{font:12px/1.7 ui-monospace,Menlo,Consolas,monospace;color:var(--mut);min-height:120px}
+  .trace .row{opacity:0;transform:translateY(4px);transition:.25s}
+  .trace .row.show{opacity:1;transform:none}
+  .trace .t{color:var(--blue)} .trace .a{color:var(--tx)}
+  .verdict{margin-top:10px;padding:12px 14px;border-radius:10px;font-weight:700;display:none}
+  .verdict.show{display:block;animation:pop .3s}
+  @keyframes pop{from{transform:scale(.96);opacity:.4}to{transform:scale(1);opacity:1}}
+  .v-auto{background:rgba(63,185,80,.12);border:1px solid var(--hit);color:var(--hit)}
+  .v-route{background:rgba(227,160,8,.12);border:1px solid var(--miss);color:var(--miss)}
+  .v-reject{background:rgba(248,81,73,.12);border:1px solid var(--rej);color:var(--rej)}
+  .verdict .why{display:block;color:var(--tx);font-weight:400;font-size:12px;margin-top:5px}
+  /* metrics */
+  .metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:18px}
+  .m{background:var(--panel);border:1px solid var(--bd);border-radius:12px;padding:14px}
+  .m .big{font-size:30px;font-weight:800;font-variant-numeric:tabular-nums}
+  .m .lab{color:var(--mut);font-size:11px;text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+  .m.acc .big{color:var(--teal)} .m.save .big{color:var(--hit)}
+  .feed{margin-top:16px;display:flex;flex-wrap:wrap;gap:6px}
+  .pill{font-size:11px;padding:3px 8px;border-radius:20px;border:1px solid var(--bd);color:var(--mut)}
+  .pill.auto{border-color:var(--hit);color:var(--hit)} .pill.route{border-color:var(--miss);color:var(--miss)}
+  .pill.reject{border-color:var(--rej);color:var(--rej)}
+  .foot{color:var(--mut);font-size:12px;margin-top:20px;text-align:center}
+  .foot b{color:var(--teal)}
+  @media(max-width:820px){.main{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="top"></div>
+<div class="wrap">
+  <div class="kick">Intelligent Document Processing · Accounts Payable</div>
+  <h1>AP Autopilot <span class="sub">on Amazon Bedrock AgentCore</span></h1>
+  <div class="kick" id="modelline">replay of a live run</div>
+
+  <div class="strip" id="strip">
+    <div class="chip" data-k="runtime"><div class="n">AgentCore Runtime</div><div class="d">hosts the agent</div></div>
+    <div class="chip" data-k="extract"><div class="n">Bedrock Vision</div><div class="d">reads the PDF</div></div>
+    <div class="chip" data-k="gateway"><div class="n">AgentCore Gateway</div><div class="d">PO / receipt tools</div></div>
+    <div class="chip" data-k="code"><div class="n">Code Interpreter</div><div class="d">3-way-match math</div></div>
+    <div class="chip" data-k="memory"><div class="n">AgentCore Memory</div><div class="d">vendor history</div></div>
+  </div>
+
+  <div class="main">
+    <div class="card doc" id="doc">
+      <div class="scan"></div>
+      <img id="thumb" alt="invoice">
+    </div>
+    <div class="card">
+      <div class="meta"><div><span class="id" id="invid">—</span> <span class="ven" id="ven"></span></div>
+        <div class="ven" id="counter"></div></div>
+      <div class="fields" id="fields"></div>
+      <div class="stages" id="stages">
+        <div class="st" data-s="extract">Extract</div>
+        <div class="st" data-s="gateway">Lookup PO + Receipt</div>
+        <div class="st" data-s="code">Validate &amp; 3-Way Match</div>
+        <div class="st" data-s="decide">Decide</div>
+      </div>
+      <div class="trace" id="trace"></div>
+      <div class="verdict" id="verdict"></div>
+    </div>
+  </div>
+
+  <div class="metrics">
+    <div class="m acc"><div class="big" id="m-stp">0%</div><div class="lab">straight-through rate</div></div>
+    <div class="m"><div class="big" id="m-proc">0</div><div class="lab">invoices processed</div></div>
+    <div class="m"><div class="big" id="m-auto">0</div><div class="lab">auto-approved</div></div>
+    <div class="m"><div class="big" id="m-cost">$0</div><div class="lab">extraction $ / invoice</div></div>
+    <div class="m save"><div class="big" id="m-save">$0</div><div class="lab">saved / year</div></div>
+  </div>
+  <div class="feed" id="feed"></div>
+  <div class="foot">A real run, replayed. Clean invoices post to the ERP automatically; exceptions route to a human with the reason.
+    <b id="footnote"></b></div>
+</div>
+
+<script id="rundata" type="application/json">/*RUNDATA*/</script>
+<script>
+const DATA = JSON.parse(document.getElementById('rundata').textContent);
+const $ = s => document.querySelector(s);
+const recs = DATA.records, S = DATA.summary, P = DATA.projection;
+$('#modelline').textContent = 'replay of a live run · extraction model ' + DATA.model;
+$('#footnote').textContent = `${S.invoices} invoices · ${(S.stp_rate*100).toFixed(0)}% straight-through · projected $${P.saved_usd_per_year.toLocaleString()}/yr saved at ${(P.invoices_per_year/12).toLocaleString()}/mo`;
+
+const STAGE_TO_CHIP = {extract:'extract', gateway:'gateway', code:'code', decide:'memory'};
+function chip(k,on){document.querySelectorAll('.chip').forEach(c=>{if(c.dataset.k===k)c.classList.toggle('on',on)})}
+function setStage(s,cls){document.querySelectorAll('.st').forEach(el=>{if(el.dataset.s===s)el.className='st '+cls})}
+function resetStages(){document.querySelectorAll('.st').forEach(el=>el.className='st');document.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));chip('runtime',true)}
+const sleep = ms => new Promise(r=>setTimeout(r,ms));
+
+let proc=0, auto=0, route=0, rej=0, costSum=0;
+function fields(r){
+  return [['Invoice #',r.invoice_id],['PO',r.po||'—'],['Vendor ID',r.vendor.slice(0,18)],
+          ['Line items',r.n_lines],['Total',r.currency+' '+r.total],['Type',r.label.replace(/_/g,' ')]]
+    .map(([k,v])=>`<div class="f"><span class="k">${k}</span><span class="v">${v}</span></div>`).join('');
+}
+function badge(st){return st==='auto_approved'?['v-auto','auto','✅ AUTO-APPROVED · posted to ERP']
+  :st==='routed_for_approval'?['v-route','route','🟡 ROUTED FOR APPROVAL']:['v-reject','reject','⛔ REJECTED']}
+
+async function playOne(r,i){
+  resetStages();
+  $('#thumb').src=r.thumb; $('#invid').textContent=r.invoice_id; $('#ven').textContent=r.vendor;
+  $('#counter').textContent=`${i+1} / ${recs.length}`;
+  $('#fields').innerHTML=''; $('#trace').innerHTML=''; $('#verdict').className='verdict';
+
+  // Extract
+  chip('runtime',true); chip('extract',true); setStage('extract','on');
+  $('#doc').classList.add('scanning'); await sleep(1300);
+  $('#doc').classList.remove('scanning'); chip('extract',false); setStage('extract','done');
+  $('#fields').innerHTML=fields(r);
+
+  // tool trace: gateway lookups -> code interpreter -> decide
+  setStage('gateway','on'); chip('gateway',true);
+  const tr=$('#trace');
+  for(const step of r.trace){
+    const isGw=/lookup/.test(step.tool), isMatch=/match|validate/.test(step.tool),
+          isAct=/post_to_erp|route_for_approval/.test(step.tool);
+    if(isMatch){setStage('gateway','done');chip('gateway',false);setStage('code','on');chip('code',true)}
+    if(isAct){setStage('code','done');chip('code',false);setStage('decide','on');chip('memory',true)}
+    const row=document.createElement('div'); row.className='row';
+    row.innerHTML=`<span class="t">▸ ${step.tool}</span> <span class="a">${step.arg}</span>`;
+    tr.appendChild(row); await sleep(40); row.classList.add('show'); await sleep(520);
+  }
+  setStage('decide','done');
+
+  // verdict
+  const [cls,pill,label]=badge(r.status);
+  const v=$('#verdict'); v.className='verdict show '+cls;
+  v.innerHTML=label+`<span class="why">${r.summary}</span>`;
+
+  proc++; if(r.status==='auto_approved')auto++; else if(r.status==='routed_for_approval')route++; else rej++;
+  costSum+=r.cost;
+  $('#m-proc').textContent=proc; $('#m-auto').textContent=auto;
+  $('#m-stp').textContent=Math.round(auto/proc*100)+'%';
+  $('#m-cost').textContent='$'+(costSum/proc).toFixed(3);
+  const stp=auto/proc, saved=Math.round(P.invoices_per_year*(stp*(11-0.4)));
+  $('#m-save').textContent='$'+(P.saved_usd_per_year* (proc/recs.length)|0).toLocaleString();
+  const f=document.createElement('span'); f.className='pill '+pill; f.textContent=r.invoice_id;
+  $('#feed').appendChild(f);
+  await sleep(1400);
+}
+
+async function run(){
+  for(let i=0;i<recs.length;i++) await playOne(recs[i],i);
+  $('#m-save').textContent='$'+P.saved_usd_per_year.toLocaleString();
+  $('#m-stp').textContent=Math.round(S.stp_rate*100)+'%';
+  await sleep(2600); run();   // loop
+}
+run();
+</script>
+</body>
+</html>
