@@ -127,20 +127,26 @@ def invoke() -> int:
 
 def down() -> int:
     ensure_clock_synced(REGION)
+    import boto3
     state = _load_state()
-    import os
-    cwd = os.getcwd()
-    # Runtime + ECR
+    ctl = boto3.client("bedrock-agentcore-control", region_name=REGION)
+
+    # Runtime — delete by id via the control plane (robust across processes).
+    # Match by name so `down` works even if state was lost.
     try:
-        from bedrock_agentcore_starter_toolkit import Runtime
-        os.chdir(RUNTIME_DIR)
-        rt = Runtime()
-        rt.destroy(delete_ecr_repo=True)
-        print("deleted Runtime + ECR repo")
+        for r in ctl.list_agent_runtimes().get("agentRuntimes", []):
+            if r.get("agentRuntimeName") == AGENT_NAME:
+                ctl.delete_agent_runtime(agentRuntimeId=r["agentRuntimeId"])
+                print(f"deleted Runtime {r['agentRuntimeId']}")
     except Exception as e:
         print(f"runtime teardown: {e}")
-    finally:
-        os.chdir(cwd)
+    # ECR repo (auto-created by the toolkit as bedrock-agentcore-<agent>)
+    try:
+        boto3.client("ecr", region_name=REGION).delete_repository(
+            repositoryName=f"bedrock-agentcore-{AGENT_NAME}", force=True)
+        print("deleted ECR repo")
+    except Exception as e:
+        print(f"ecr teardown: {e}")
     # Memory
     if state.get("memory_id"):
         try:
